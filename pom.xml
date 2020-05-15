@@ -15,6 +15,9 @@
         <module>fyjmall-order</module>
         <module>fyjmall-product</module>
         <module>fyjmall-storage</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
+        <module>fyjmall_common</module>
     </modules>
 
 
