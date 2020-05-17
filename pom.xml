@@ -18,7 +18,10 @@
         <module>renren-fast</module>
         <module>renren-generator</module>
         <module>fyjmall_common</module>
+        <module>fyjmall-gateway</module>
     </modules>
+
+
 
 
 

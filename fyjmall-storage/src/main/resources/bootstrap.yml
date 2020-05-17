@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: fyjmall-storage
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #Nacos服务注册中心地址
+      config:
+        server-addr: localhost:8848 #Nacos作为配置中心地址
+        namespace: 62079983-c3bf-4400-b69d-315a9bd630b8
+        group: dev
+        file-extension: yml

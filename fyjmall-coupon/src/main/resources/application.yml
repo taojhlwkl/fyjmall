@@ -22,3 +22,10 @@ mybatis-plus:
     db-config:
       #\u4E3B\u952E\u7C7B\u578B  AUTO:"\u6570\u636E\u5E93ID\u81EA\u589E", INPUT:"\u7528\u6237\u8F93\u5165ID", ID_WORKER:"\u5168\u5C40\u552F\u4E00ID (\u6570\u5B57\u7C7B\u578B\u552F\u4E00ID)", UUID:"\u5168\u5C40\u552F\u4E00ID UUID";
       id-type: AUTO
+
+## 监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
