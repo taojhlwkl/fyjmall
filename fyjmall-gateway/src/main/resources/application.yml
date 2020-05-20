@@ -8,6 +8,22 @@ spring:
           enabled: true
       # \u8DEF\u7531\u96C6\u5408
       routes:
+        - id: thirdParty_route #    #\u8DEF  \u7531\u7684ID\uFF0C\u6CA1\u6709\u56FA\u5B9A\u89C4\u5219\u4F46\u8981\u6C42\u552F\u4E00\uFF0C\u5EFA\u8BAE\u914D\u5408\u670D\u52A1\u540D
+          uri: lb://fyjmall-third_party          #\u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740
+          predicates:
+            - Path=/api/thirdparty/**
+          # 路径重写，把 /api/**  下的路径 重新成 /renren-fast/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /$\{segment}
+
+        - id: product_route #    #\u8DEF  \u7531\u7684ID\uFF0C\u6CA1\u6709\u56FA\u5B9A\u89C4\u5219\u4F46\u8981\u6C42\u552F\u4E00\uFF0C\u5EFA\u8BAE\u914D\u5408\u670D\u52A1\u540D
+          uri: lb://fyjmall-product          #\u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740
+          predicates:
+            - Path=/api/product/**
+          # 路径重写，把 /api/**  下的路径 重新成 /**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /$\{segment}
+
         - id: storage_route #payment_route    #\u8DEF\u7531\u7684ID\uFF0C\u6CA1\u6709\u56FA\u5B9A\u89C4\u5219\u4F46\u8981\u6C42\u552F\u4E00\uFF0C\u5EFA\u8BAE\u914D\u5408\u670D\u52A1\u540D
           uri: lb://fyjmall-storage          #\u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740
           predicates:
@@ -25,3 +41,10 @@ spring:
             #- After=2020-02-21T15:51:37.485+08:00[Asia/Shanghai]
             #- Cookie=username,zzyy
             #- Header=X-Request-Id, \d+  # \u8BF7\u6C42\u5934\u8981\u6709X-Request-Id\u5C5E\u6027\u5E76\u4E14\u503C\u4E3A\u6574\u6570\u7684\u6B63\u5219\u8868\u8FBE\u5F0F
+        - id: renren_route #    #\u8DEF  \u7531\u7684ID\uFF0C\u6CA1\u6709\u56FA\u5B9A\u89C4\u5219\u4F46\u8981\u6C42\u552F\u4E00\uFF0C\u5EFA\u8BAE\u914D\u5408\u670D\u52A1\u540D
+          uri: lb://renren-fast          #\u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740
+          predicates:
+            - Path=/api/**
+          # 路径重写，把 /api/**  下的路径 重新成 /renren-fast/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /renren-fast/$\{segment}

@@ -1,0 +1,15 @@
+server:
+  port: 30000
+
+spring:
+  application:
+    name: fyjmall-thirdparty
+  cloud:
+    alicloud:
+      access-key: LTAI4GL3NCK1iGooV8wGppCV
+      secret-key: FlINGlvOTf3mEWFs8aqndnwKJBlhBF
+      oss:
+        endpoint: oss-cn-heyuan.aliyuncs.com
+        bucket: fyjmall
+
+

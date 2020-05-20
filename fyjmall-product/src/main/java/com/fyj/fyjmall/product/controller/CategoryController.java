@@ -1,20 +1,14 @@
 package com.fyj.fyjmall.product.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import com.fyj.common.utils.R;
 import com.fyj.fyjmall.product.entity.CategoryEntity;
 import com.fyj.fyjmall.product.service.CategoryService;
-import com.fyj.common.utils.PageUtils;
-import com.fyj.common.utils.R;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -31,14 +25,16 @@ public class CategoryController {
     private CategoryService categoryService;
 
     /**
-     * 列表
+     * 获取分类树形结构
      */
-    @RequestMapping("/list")
+    @GetMapping("/listCategoryTree")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = categoryService.queryPage(params);
+        List<CategoryEntity> categoryEntities = categoryService.listCategoryTree();
 
-        return R.ok().put("page", page);
+        return R.ok().put("data", categoryEntities);
     }
+
+
 
 
     /**
@@ -54,7 +50,7 @@ public class CategoryController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     public R save(@RequestBody CategoryEntity category){
 		categoryService.save(category);
 
@@ -64,7 +60,7 @@ public class CategoryController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PostMapping("/update")
     public R update(@RequestBody CategoryEntity category){
 		categoryService.updateById(category);
 
@@ -74,7 +70,7 @@ public class CategoryController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @PostMapping("/delete")
     public R delete(@RequestBody Long[] catIds){
 		categoryService.removeByIds(Arrays.asList(catIds));
 
