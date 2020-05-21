@@ -1,5 +1,6 @@
 package com.fyj.fyjmall.product.service;
 
+
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fyj.common.utils.PageUtils;
 import com.fyj.fyjmall.product.entity.SpuInfoDescEntity;
@@ -16,5 +17,9 @@ import java.util.Map;
 public interface SpuInfoDescService extends IService<SpuInfoDescEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    void saveSpuInfoDesc(SpuInfoDescEntity descEntity);
+
+
 }
 

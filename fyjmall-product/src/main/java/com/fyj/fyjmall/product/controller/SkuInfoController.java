@@ -1,19 +1,16 @@
 package com.fyj.fyjmall.product.controller;
 
+import com.fyj.common.utils.PageUtils;
+import com.fyj.common.utils.R;
+import com.fyj.fyjmall.product.entity.SkuInfoEntity;
+import com.fyj.fyjmall.product.service.SkuInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Arrays;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.fyj.fyjmall.product.entity.SkuInfoEntity;
-import com.fyj.fyjmall.product.service.SkuInfoService;
-import com.fyj.common.utils.PageUtils;
-import com.fyj.common.utils.R;
 
 
 
@@ -22,7 +19,7 @@ import com.fyj.common.utils.R;
  *
  * @author fyj
  * @email 1813306692@qq.com
- * @date 2020-05-15 17:52:23
+ * @date 2020-05-15 18:03:42
  */
 @RestController
 @RequestMapping("product/skuinfo")
@@ -34,8 +31,9 @@ public class SkuInfoController {
      * 列表
      */
     @RequestMapping("/list")
+    //@RequiresPermissions("product:skuinfo:list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = skuInfoService.queryPage(params);
+        PageUtils page = skuInfoService.queryPageByCondition(params);
 
         return R.ok().put("page", page);
     }
@@ -45,6 +43,7 @@ public class SkuInfoController {
      * 信息
      */
     @RequestMapping("/info/{skuId}")
+    //@RequiresPermissions("product:skuinfo:info")
     public R info(@PathVariable("skuId") Long skuId){
 		SkuInfoEntity skuInfo = skuInfoService.getById(skuId);
 
@@ -55,6 +54,7 @@ public class SkuInfoController {
      * 保存
      */
     @RequestMapping("/save")
+    //@RequiresPermissions("product:skuinfo:save")
     public R save(@RequestBody SkuInfoEntity skuInfo){
 		skuInfoService.save(skuInfo);
 
@@ -65,6 +65,7 @@ public class SkuInfoController {
      * 修改
      */
     @RequestMapping("/update")
+    //@RequiresPermissions("product:skuinfo:update")
     public R update(@RequestBody SkuInfoEntity skuInfo){
 		skuInfoService.updateById(skuInfo);
 
@@ -75,6 +76,7 @@ public class SkuInfoController {
      * 删除
      */
     @RequestMapping("/delete")
+    //@RequiresPermissions("product:skuinfo:delete")
     public R delete(@RequestBody Long[] skuIds){
 		skuInfoService.removeByIds(Arrays.asList(skuIds));
 

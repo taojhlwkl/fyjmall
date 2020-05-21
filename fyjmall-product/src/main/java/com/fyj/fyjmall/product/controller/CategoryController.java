@@ -27,7 +27,7 @@ public class CategoryController {
     /**
      * 获取分类树形结构
      */
-    @GetMapping("/listCategoryTree")
+    @GetMapping("/list/tree")
     public R list(@RequestParam Map<String, Object> params){
         List<CategoryEntity> categoryEntities = categoryService.listCategoryTree();
 

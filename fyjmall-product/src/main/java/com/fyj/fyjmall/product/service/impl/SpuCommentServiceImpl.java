@@ -1,16 +1,17 @@
 package com.fyj.fyjmall.product.service.impl;
 
-import org.springframework.stereotype.Service;
-import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fyj.common.utils.PageUtils;
 import com.fyj.common.utils.Query;
-
 import com.fyj.fyjmall.product.dao.SpuCommentDao;
 import com.fyj.fyjmall.product.entity.SpuCommentEntity;
 import com.fyj.fyjmall.product.service.SpuCommentService;
+import org.springframework.stereotype.Service;
+
+import java.util.Map;
+
 
 
 @Service("spuCommentService")

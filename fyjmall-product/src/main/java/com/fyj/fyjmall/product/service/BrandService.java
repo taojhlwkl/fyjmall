@@ -1,5 +1,6 @@
 package com.fyj.fyjmall.product.service;
 
+
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fyj.common.utils.PageUtils;
 import com.fyj.fyjmall.product.entity.BrandEntity;
@@ -16,5 +17,8 @@ import java.util.Map;
 public interface BrandService extends IService<BrandEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    void updateDetail(BrandEntity brand);
+
 }
 

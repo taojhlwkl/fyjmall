@@ -1,9 +1,12 @@
 package com.fyj.fyjmall.product.service;
 
+
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fyj.common.utils.PageUtils;
 import com.fyj.fyjmall.product.entity.AttrAttrgroupRelationEntity;
+import com.fyj.fyjmall.product.vo.AttrGroupRelationVo;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +19,8 @@ import java.util.Map;
 public interface AttrAttrgroupRelationService extends IService<AttrAttrgroupRelationEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    void saveBatch(List<AttrGroupRelationVo> vos);
+
 }
 
