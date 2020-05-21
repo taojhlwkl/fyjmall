@@ -1,19 +1,16 @@
 package com.fyj.fyjmall.storage.controller;
 
+import com.fyj.common.utils.PageUtils;
+import com.fyj.common.utils.R;
+import com.fyj.fyjmall.storage.entity.PurchaseDetailEntity;
+import com.fyj.fyjmall.storage.service.PurchaseDetailService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Arrays;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.fyj.fyjmall.storage.entity.PurchaseDetailEntity;
-import com.fyj.fyjmall.storage.service.PurchaseDetailService;
-import com.fyj.common.utils.PageUtils;
-import com.fyj.common.utils.R;
 
 
 
@@ -25,7 +22,7 @@ import com.fyj.common.utils.R;
  * @date 2020-05-15 18:00:12
  */
 @RestController
-@RequestMapping("storage/purchasedetail")
+@RequestMapping("ware/purchasedetail")
 public class PurchaseDetailController {
     @Autowired
     private PurchaseDetailService purchaseDetailService;
@@ -34,6 +31,7 @@ public class PurchaseDetailController {
      * 列表
      */
     @RequestMapping("/list")
+    //@RequiresPermissions("ware:purchasedetail:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = purchaseDetailService.queryPage(params);
 
@@ -45,6 +43,7 @@ public class PurchaseDetailController {
      * 信息
      */
     @RequestMapping("/info/{id}")
+    //@RequiresPermissions("ware:purchasedetail:info")
     public R info(@PathVariable("id") Long id){
 		PurchaseDetailEntity purchaseDetail = purchaseDetailService.getById(id);
 
@@ -55,6 +54,7 @@ public class PurchaseDetailController {
      * 保存
      */
     @RequestMapping("/save")
+    //@RequiresPermissions("ware:purchasedetail:save")
     public R save(@RequestBody PurchaseDetailEntity purchaseDetail){
 		purchaseDetailService.save(purchaseDetail);
 
@@ -65,6 +65,7 @@ public class PurchaseDetailController {
      * 修改
      */
     @RequestMapping("/update")
+    //@RequiresPermissions("ware:purchasedetail:update")
     public R update(@RequestBody PurchaseDetailEntity purchaseDetail){
 		purchaseDetailService.updateById(purchaseDetail);
 
@@ -75,6 +76,7 @@ public class PurchaseDetailController {
      * 删除
      */
     @RequestMapping("/delete")
+    //@RequiresPermissions("ware:purchasedetail:delete")
     public R delete(@RequestBody Long[] ids){
 		purchaseDetailService.removeByIds(Arrays.asList(ids));
 

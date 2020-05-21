@@ -48,7 +48,7 @@ public class SkuFullReductionServiceImpl extends ServiceImpl<SkuFullReductionDao
 
     @Override
     public void saveSkuReduction(SkuReductionTo reductionTo) {
-        //1、// //5.4）、sku的优惠、满减等信息；gulimall_sms->sms_sku_ladder\sms_sku_full_reduction\sms_member_price
+        //1、// //5.4）、sku的优惠、满减等信息；fyjmall_sms->sms_sku_ladder\sms_sku_full_reduction\sms_member_price
         //sms_sku_ladder
         SkuLadderEntity skuLadderEntity = new SkuLadderEntity();
         skuLadderEntity.setSkuId(reductionTo.getSkuId());

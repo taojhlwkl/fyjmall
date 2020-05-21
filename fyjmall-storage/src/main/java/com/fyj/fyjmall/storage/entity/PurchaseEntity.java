@@ -2,15 +2,15 @@ package com.fyj.fyjmall.storage.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-
-import java.math.BigDecimal;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * 采购信息
- * 
+ *
  * @author fyj
  * @email 1813306692@qq.com
  * @date 2020-05-15 18:00:12

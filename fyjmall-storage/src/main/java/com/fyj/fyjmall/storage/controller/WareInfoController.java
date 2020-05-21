@@ -1,19 +1,16 @@
 package com.fyj.fyjmall.storage.controller;
 
+import com.fyj.common.utils.PageUtils;
+import com.fyj.common.utils.R;
+import com.fyj.fyjmall.storage.entity.WareInfoEntity;
+import com.fyj.fyjmall.storage.service.WareInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Arrays;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.fyj.fyjmall.storage.entity.WareInfoEntity;
-import com.fyj.fyjmall.storage.service.WareInfoService;
-import com.fyj.common.utils.PageUtils;
-import com.fyj.common.utils.R;
 
 
 
@@ -25,7 +22,7 @@ import com.fyj.common.utils.R;
  * @date 2020-05-15 18:00:12
  */
 @RestController
-@RequestMapping("storage/wareinfo")
+@RequestMapping("ware/wareinfo")
 public class WareInfoController {
     @Autowired
     private WareInfoService wareInfoService;
@@ -34,6 +31,7 @@ public class WareInfoController {
      * 列表
      */
     @RequestMapping("/list")
+    //@RequiresPermissions("ware:wareinfo:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = wareInfoService.queryPage(params);
 
@@ -45,6 +43,7 @@ public class WareInfoController {
      * 信息
      */
     @RequestMapping("/info/{id}")
+    //@RequiresPermissions("ware:wareinfo:info")
     public R info(@PathVariable("id") Long id){
 		WareInfoEntity wareInfo = wareInfoService.getById(id);
 
@@ -55,6 +54,7 @@ public class WareInfoController {
      * 保存
      */
     @RequestMapping("/save")
+    //@RequiresPermissions("ware:wareinfo:save")
     public R save(@RequestBody WareInfoEntity wareInfo){
 		wareInfoService.save(wareInfo);
 
@@ -65,6 +65,7 @@ public class WareInfoController {
      * 修改
      */
     @RequestMapping("/update")
+    //@RequiresPermissions("ware:wareinfo:update")
     public R update(@RequestBody WareInfoEntity wareInfo){
 		wareInfoService.updateById(wareInfo);
 
@@ -75,6 +76,7 @@ public class WareInfoController {
      * 删除
      */
     @RequestMapping("/delete")
+    //@RequiresPermissions("ware:wareinfo:delete")
     public R delete(@RequestBody Long[] ids){
 		wareInfoService.removeByIds(Arrays.asList(ids));
 

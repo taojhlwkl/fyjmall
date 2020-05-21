@@ -8,6 +8,7 @@ spring:
           enabled: true
       # \u8DEF\u7531\u96C6\u5408
       routes:
+        # 第三方服务
         - id: thirdParty_route #    #\u8DEF  \u7531\u7684ID\uFF0C\u6CA1\u6709\u56FA\u5B9A\u89C4\u5219\u4F46\u8981\u6C42\u552F\u4E00\uFF0C\u5EFA\u8BAE\u914D\u5408\u670D\u52A1\u540D
           uri: lb://fyjmall-thirdparty          #\u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740
           predicates:
@@ -16,6 +17,7 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>/?.*), /$\{segment}
 
+        # 商品系统
         - id: product_route #    #\u8DEF  \u7531\u7684ID\uFF0C\u6CA1\u6709\u56FA\u5B9A\u89C4\u5219\u4F46\u8981\u6C42\u552F\u4E00\uFF0C\u5EFA\u8BAE\u914D\u5408\u670D\u52A1\u540D
           uri: lb://fyjmall-product          #\u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740
           predicates:
@@ -24,6 +26,7 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>/?.*), /$\{segment}
 
+        # 库存系统
         - id: storage_route #payment_route    #\u8DEF\u7531\u7684ID\uFF0C\u6CA1\u6709\u56FA\u5B9A\u89C4\u5219\u4F46\u8981\u6C42\u552F\u4E00\uFF0C\u5EFA\u8BAE\u914D\u5408\u670D\u52A1\u540D
           uri: lb://fyjmall-storage          #\u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740
           predicates:
@@ -31,6 +34,7 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>/?.*), /$\{segment}
 
+        # 活动优惠系统
         - id: coupon_route #payment_route    #\u8DEF\u7531\u7684ID\uFF0C\u6CA1\u6709\u56FA\u5B9A\u89C4\u5219\u4F46\u8981\u6C42\u552F\u4E00\uFF0C\u5EFA\u8BAE\u914D\u5408\u670D\u52A1\u540D
           uri: lb://fyjmall-coupon          #\u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740
           predicates:
@@ -39,13 +43,22 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>/?.*), /$\{segment}
 
+        # 订单系统
         - id: order_route #payment_route    #\u8DEF  \u7531\u7684ID\uFF0C\u6CA1\u6709\u56FA\u5B9A\u89C4\u5219\u4F46\u8981\u6C42\u552F\u4E00\uFF0C\u5EFA\u8BAE\u914D\u5408\u670D\u52A1\u540D
           uri: lb://fyjmall-order          #\u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740
           predicates:
             - Path=/api/order/**         # \u65AD\u8A00\uFF0C\u8DEF\u5F84\u76F8\u5339\u914D\u7684\u8FDB\u884C\u8DEF\u7531
-            #- After=2020-02-21T15:51:37.485+08:00[Asia/Shanghai]
-            #- Cookie=username,zzyy
-            #- Header=X-Request-Id, \d+  # \u8BF7\u6C42\u5934\u8981\u6709X-Request-Id\u5C5E\u6027\u5E76\u4E14\u503C\u4E3A\u6574\u6570\u7684\u6B63\u5219\u8868\u8FBE\u5F0F
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /$\{segment}
+         # 会员系统
+        - id: member_route #payment_route    #\u8DEF  \u7531\u7684ID\uFF0C\u6CA1\u6709\u56FA\u5B9A\u89C4\u5219\u4F46\u8981\u6C42\u552F\u4E00\uFF0C\u5EFA\u8BAE\u914D\u5408\u670D\u52A1\u540D
+          uri: lb://fyjmall-member          #\u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740
+          predicates:
+            - Path=/api/member/**         # \u65AD\u8A00\uFF0C\u8DEF\u5F84\u76F8\u5339\u914D\u7684\u8FDB\u884C\u8DEF\u7531
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /$\{segment}
+
+        # 脚手架工程
         - id: renren_route #    #\u8DEF  \u7531\u7684ID\uFF0C\u6CA1\u6709\u56FA\u5B9A\u89C4\u5219\u4F46\u8981\u6C42\u552F\u4E00\uFF0C\u5EFA\u8BAE\u914D\u5408\u670D\u52A1\u540D
           uri: lb://renren-fast          #\u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740
           predicates:
