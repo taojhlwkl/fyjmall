@@ -6,8 +6,9 @@ spring:
     name: fyjmall-thirdparty
   cloud:
     alicloud:
-      access-key: LTAI4GL3NCK1iGooV8wGppCV
-      secret-key: FlINGlvOTf3mEWFs8aqndnwKJBlhBF
+
+      access-key: xxx
+      secret-key: xx
       oss:
         endpoint: oss-cn-heyuan.aliyuncs.com
         bucket: fyjmall
