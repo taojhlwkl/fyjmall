@@ -7,8 +7,8 @@ spring:
   cloud:
     alicloud:
 
-      access-key: xxx
-      secret-key: xx
+      access-key: LTAI4GL3NCK1iGooV8wGppCV
+      secret-key: FlINGlvOTf3mEWFs8aqndnwKJBlhBF
       oss:
         endpoint: oss-cn-heyuan.aliyuncs.com
         bucket: fyjmall
