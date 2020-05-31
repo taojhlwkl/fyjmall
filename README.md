@@ -5,3 +5,5 @@
 - 前台入口有PC端和移动端（H5）,前台商城系统包含首页门户、商品推荐、商品搜索、商品展示、购物车、订单流程、会员中心、秒杀，众筹，客户服务...
 - 该项目的最终目的把该系统打造成一个类似于小米有品的商城系统。持续迭代，精心维护，为开源做点绵薄之力。
 
+# 架构图
+![image]https://github.com/fangyajun/fyjmall/blob/master/document/img/fyjmall-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg
