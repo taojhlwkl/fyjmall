@@ -6,4 +6,4 @@
 - 该项目的最终目的把该系统打造成一个类似于小米有品的商城系统。持续迭代，精心维护，为开源做点绵薄之力。
 
 # 架构图
-![image]https://github.com/fangyajun/fyjmall/blob/master/document/img/fyjmall-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg
+![image](https://github.com/fangyajun/fyjmall/blob/master/document/img/fyjmall-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg)
