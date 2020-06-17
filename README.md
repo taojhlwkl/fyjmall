@@ -9,9 +9,20 @@
 ![image](https://github.com/fangyajun/fyjmall/blob/master/document/img/fyjmall-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg)
 
 
-# 系统工程介绍
-# 系统结构
+# 系统工程结构介绍
 fyjmall
-   - safas
-   - asdf a
-   - afasd
+   - fyjmall-auth  登录授权系统
+   - fyjmall-coupon  活动优惠系统
+   - fyjmall-gateway  服务网关  
+   - fyjmall-member  会员系统
+   - fyjmall-order   订单系统
+   - fyjmall-product   商品系统
+   - fyjmall-search   搜索系统
+   - fyjmall-seckill   秒杀系统
+   - fyjmall-storage   仓储系统
+   - fyjmall-thirdparty   第三方服务（短信,OOS对存储,支付,物流...）
+   - fyjmall-vue-admin  前端后台管理 基于vue element-ui 实现
+   - fyjmall_common    公共依赖
+   - renren-fast    脚手架工程
+   - renren-generator  代码生成器
+   
