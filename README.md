@@ -7,3 +7,15 @@
 
 # 架构图
 ![image](https://github.com/fangyajun/fyjmall/blob/master/document/img/fyjmall-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg)
+
+
+# 系统工程介绍
+# 系统结构
+fyjmall
+├── mall-common -- 工具类及通用代码
+├── mall-mbg -- MyBatisGenerator生成的数据库操作代码
+├── mall-security -- SpringSecurity封装公用模块
+├── mall-admin -- 后台商城管理系统接口
+├── mall-search -- 基于Elasticsearch的商品搜索系统
+├── mall-portal -- 前台商城系统接口
+└── mall-demo -- 框架搭建时的测试代码
